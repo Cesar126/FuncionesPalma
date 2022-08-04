@@ -788,6 +788,7 @@ void pedircarta(int num)
     carta2_negro();
     else if(num==7)
     carta2_trebol();
+   
     //carta 3
     if(num==8)
     carta3_corazon();
@@ -860,6 +861,7 @@ void pedircarta(int num)
     carta10_negro();
     else if(num==39)
     carta10_trebol();
+    
 
 }
 void imprimircarta(int cartas[])
@@ -874,11 +876,33 @@ for(int k=0; k<MAX; k++){
 
 int main()
 {
+    string respuesta; 
     srand(time(NULL)); //inicializa el generador de número aleatorios
     int cartas[MAX];
    iniciarcartas(cartas);
    barajarcarta(cartas);
    imprimircarta(cartas);
+   int i=1;
+   int cuentacarta=0;
+   while(i<=2)
+   {
+    cout<<endl<<"Jugador numero 1";
+    cout<<endl<<"pulsa enter para pedir la carta numero "<<i<<" ";
+    getch();
+    fflush(stdin);
+    pedircarta(cartas[cuentacarta]);
+    i++;
+    cuentacarta++;
+    cout<<endl<<"¿Desea una cuerta mas?"; 
+    cin>>respuesta;
+    if(respuesta=="si")
+    {
+        getch();
+        fflush(stdin);
+        pedircarta(cartas[cuentacarta]);
+
+    }
+   }
     
      
     
